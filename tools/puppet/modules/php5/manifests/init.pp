@@ -12,10 +12,10 @@ class php5::install{
         ensure=>present,
         require => Exec['add-php5-oldstable']
     }
-    package{"php5-mysql":
-        ensure=>present,
-        require => Exec['add-php5-oldstable']
-    }
+    # package{"php5-mysql":
+    #     ensure=>present,
+    #     require => Exec['add-php5-oldstable']
+    # }
     package{"php5-curl":
         ensure=>present,
         require => Exec['add-php5-oldstable']

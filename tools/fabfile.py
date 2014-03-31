@@ -40,7 +40,7 @@ def build():
     """
     Creates the viewable website
     """
-    with cd("/var/www"):
+    with cd("/project_share/src/"):
         run("php core/builder.php -g")
 
 
@@ -49,7 +49,7 @@ def watch():
     """
     watches for changes in the source code
     """
-    with cd("/var/www"):
+    with cd("/project_share/src/"):
         run("php core/builder.php -w")
         # TODO: add grunt watch
 

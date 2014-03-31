@@ -10,9 +10,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :private_network, ip: "10.0.0.18"
   config.vm.network :forwarded_port, guest: 80, host: 8080
 
-  config.vm.synced_folder "../src/public/", "/var/www/"
-
-  config.vm.synced_folder "files/etc", "/etc/puppet"
+  config.vm.synced_folder "..", "/project_share", type: "rsync",
+      rsync__args: ["--verbose", "--archive", "-z"],
+      rsync__exclude: [".git", "tools/*modules", "node_modules"]
 
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = "puppet/manifests"

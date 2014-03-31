@@ -15,7 +15,7 @@ class apache2::install{
     group => root,
     ensure => file,
     mode => 644,
-    source => '/etc/puppet/apache2/httpd.conf',
+    source => '/project_share/tools/files/etc/apache2/httpd.conf',
     require => Package["apache2"]
   }
 
@@ -24,7 +24,7 @@ class apache2::install{
     group => root,
     ensure => file,
     mode => 644,
-    source => '/etc/puppet/apache2/sites-available/default',
+    source => '/project_share/tools/files/etc/apache2/sites-available/default',
     require => Package["apache2"],
   }
 
@@ -33,7 +33,7 @@ class apache2::install{
     group => root,
     ensure => file,
     mode => 644,
-    source => '/etc/puppet/apache2/mods-available/rewrite.load',
+    source => '/project_share/tools/files/etc/apache2/mods-available/rewrite.load',
     require => Package['apache2'],
   }
 
