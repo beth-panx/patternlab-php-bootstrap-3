@@ -37,18 +37,17 @@ class apache2::install{
     require => Package['apache2'],
   }
 
-
   file { '/etc/apache2/sites-enabled/000-default':
     notify => Service["apache2"],
     ensure => link,
-    target => "/etc/puppet/apache2/sites-available/default",
+    target => "/project_share/tools/files/etc/apache2/sites-available/default",
     require => Package["apache2"],
   }
 
   file { '/etc/apache2/mods-enabled/rewrite.load':
     notify => Service["apache2"],
     ensure => link,
-    target => "/etc/puppet/apache2/mods-available/rewrite.load",
+    target => "/project_share/tools/files/etc/apache2/mods-available/rewrite.load",
     require => Package["apache2"],
   }
 }

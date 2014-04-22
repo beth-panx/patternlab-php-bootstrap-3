@@ -2,7 +2,9 @@
 from __future__ import unicode_literals
 
 import os.path as op
-from fabric.api import env, local, task, cd, run
+from subprocess import Popen
+
+from fabric.api import env, local, task, lcd
 
 env.use_ssh_config = True
 env.roledefs['vagrant'] = ["vagrant@10.0.0.18"]
@@ -40,8 +42,8 @@ def build():
     """
     Creates the viewable website
     """
-    with cd("/project_share/src/"):
-        run("php core/builder.php -g")
+    with lcd("../src/"):
+        local("php core/builder.php -g")
 
 
 @task
@@ -49,9 +51,14 @@ def watch():
     """
     watches for changes in the source code
     """
-    with cd("/project_share/src/"):
-        run("php core/builder.php -w")
-        # TODO: add grunt watch
+    vagrant_rsync_process = Popen(['vagrant', 'rsync-auto'])
+
+    with lcd("../src/"):
+        try:
+            local("php core/builder.php -wr")
+        except KeyboardInterrupt:
+            pass
+    vagrant_rsync_process.terminate()
 
 
 @task

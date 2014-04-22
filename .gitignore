@@ -1,9 +1,9 @@
 .DS_Store
 src/public/*
-src/source/*
 config.ini
 latest-change.txt
 *-ck.js
 *.sass-cache/
 .vagrant
 *.pyc
+tools/venv
