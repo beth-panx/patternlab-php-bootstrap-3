@@ -7,3 +7,4 @@ latest-change.txt
 .vagrant
 *.pyc
 tools/venv
+node_modules
