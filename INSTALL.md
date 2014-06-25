@@ -16,3 +16,7 @@
 
 You should be able to view our intranet by opening your browser at the
 following address: [http://10.0.0.18](http://10.0.0.18)
+
+### Hints if you have trouble with the install
+
+* If you get an error mentionning VT-x, it’s because you need to activate virtualization on your computer through your BIOS.
