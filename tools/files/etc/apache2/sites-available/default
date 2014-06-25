@@ -13,4 +13,10 @@
 	LogLevel warn
 
 	CustomLog ${APACHE_LOG_DIR}/vagrant.access.log combined
+
+
+    <Directory />
+        Allow from all
+    </Directory>
+
 </VirtualHost>
